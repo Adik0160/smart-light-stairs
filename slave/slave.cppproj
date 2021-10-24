@@ -165,7 +165,22 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="defines.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="i2c_slave.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="i2c_slave.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="main.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="sonar.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="sonar.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>

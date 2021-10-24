@@ -15,11 +15,11 @@
 int Sonar::measure(uint8_t configRef = false, uint8_t waitingFlag = true) //configRef = 'true' kiedy w³¹czamy konfiguracje czujnika - 'false' przy zwyk³ym skanowaniu
 {
 	switch (sonarNumber){
-		case 0:
-		SONAR_TRIGGER0_HIGH();
+		case 2:
+		SONAR_TRIGGER2_HIGH();
 		break;
-		case 1:
-		SONAR_TRIGGER1_HIGH();
+		case 3:
+		SONAR_TRIGGER3_HIGH();
 		break;
 		default:
 		refTime = -1;
@@ -33,11 +33,11 @@ int Sonar::measure(uint8_t configRef = false, uint8_t waitingFlag = true) //conf
 	echoRising_Global = 1;	//w³¹czenie oczekiwania na stan narastaj¹cy na przerwaniu
 	_delay_us(10);
 	switch (sonarNumber){
-		case 0:
-		SONAR_TRIGGER0_LOW();
+		case 2:
+		SONAR_TRIGGER2_LOW();
 		break;
-		case 1:
-		SONAR_TRIGGER1_LOW();
+		case 3:
+		SONAR_TRIGGER3_LOW();
 		break;
 	}
 	uint32_t x = 0;
@@ -52,7 +52,7 @@ int Sonar::measure(uint8_t configRef = false, uint8_t waitingFlag = true) //conf
 uint8_t Sonar::comparate(uint8_t waitingFlag = true) //je¿eli zwróci 1 to znaczy ¿e jest mniejsze od czasu referencyjnego, je¿eli nie to 0
 {
 	uint32_t x = 0;
-	while((runningSonar_Global != 'F') && waitingFlag) if(x >= 2000000UL) break; else x++; //je¿eli trwa jakiœ pomiar - czekaj
+	while((runningSonar_Global != 'F') && waitingFlag) if(x >= 2000000UL) break; else x++;  //je¿eli trwa jakiœ pomiar - czekaj
 	measure();
 	x = 0;
 	while((runningSonar_Global != 'F') && waitingFlag) if(x >= 2000000UL) break; else x++; //czekaj na skoñczenie pomiaru, póŸniej porównuj
@@ -110,13 +110,6 @@ Sonar::Sonar(uint8_t sonarNr,int refT = 0) //konstruktor -- domyœlny czas refere
 					hcsr04_1.refTime = hcsr04_1.actualTime - 2;
 					configRef_Global = false;
 */
-
-
-Sonar_Slave::Sonar_Slave(uint8_t x)
-{
-	sonarNumber = x;
-}
-
 
 Extreme::Extreme(uint8_t i, int v)
 {

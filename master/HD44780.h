@@ -4,9 +4,6 @@
 // z dowolnym przypisaniem sygna≥Ûw sterujπcych
 // Plik : HD44780.h	
 // Mikrokontroler : Atmel AVR
-// Kompilator : avr-gcc
-// Autor : Rados≥aw KwiecieÒ
-// èrÛd≥o : http://radzio.dxp.pl/hd44780/
 // Data : 24.03.2007
 //-------------------------------------------------------------------------------------------------
 

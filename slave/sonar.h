@@ -16,10 +16,10 @@ class Sonar
 { 
 	public:
 	volatile int actualTime; //odleg³oœæ w cm
+	int refTime; //tutaj równie¿ - zawsze mniejsza o 2 cm ni¿ actuakTime
 //	volatile uint8_t compareFlag;
 	
 	private:
-	int refTime; //tutaj równie¿ - zawsze mniejsza o 2 cm ni¿ actuakTime
 	int avgBuf[5]; //bufor piêciu pomiarów - u¿ywane w funkcji avarage_config()
 	uint8_t sonarNumber; //numer czujnika !!WA¯NE
 	
@@ -28,14 +28,6 @@ class Sonar
 	int measure(uint8_t, uint8_t); //configRef = 'true' kiedy w³¹czamy konfiguracje czujnika - 'false' przy zwyk³ym skanowaniu
 	uint8_t comparate(uint8_t); //je¿eli zwróci 1 to znaczy ¿e jest mniejsze od czasu referencyjnego, je¿eli nie to 0	
 	int avarage_config(void); //funkcja wykonuje 5 pomiarów, usuwa liczby skrajne. Z trzech robi œredni¹, odejmuje 2 cm i zwraca j¹ po przez wartoœæ oraz zapisuje do zmiennej klasy refTime
-};
-
-class Sonar_Slave
-{
-	public:
-	int refTime;
-	uint8_t sonarNumber;	
-	Sonar_Slave(uint8_t);
 };
 
 class Extreme //klasa extermum

@@ -2,7 +2,6 @@
  * defines.h
  *
  * Created: 26.07.2016 15:26:38
- *  Author: Adikoff
  */ 
 
 
@@ -32,6 +31,8 @@
 //--------------------------
 #define	LCD_LED		PD6	//output
 
+#define Relay		PA4
+
 //funkcje dla trigger, leda w lcd, przycisków etc
 
 #define BUTTON_1_PRESSED()		!(PINA&(1<<BUTTON_1))
@@ -47,10 +48,15 @@
 
 #define LCD_LED_ON()			PORTD |= (1<<LCD_LED)
 #define LCD_LED_OFF()			PORTD &=~ (1<<LCD_LED)
+
+#define RELAY_ON()				PORTA |= (1<<Relay)
+#define RELAY_OFF()				PORTA &=~ (1<<Relay)
+
 //sta³e
 #define MAX_RESP_TIME_MS	200
 #define DELAY_BTW_TESTS_MS	100
 
+#define slave_adress 174
 
 
 #endif /* DEFINES_H_ */
